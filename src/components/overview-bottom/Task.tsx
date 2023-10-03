@@ -1,26 +1,8 @@
 import { useState } from "react";
 import { BsPlusSquare } from "react-icons/bs";
 import ModalTaskForm from "./ModalTaskForm";
-
-export interface TaskInterface {
-  task: string;
-  status: string;
-}
-
-const listTask = [
-  {
-    task: "Finish ticket update",
-    status: "URGENT",
-  },
-  {
-    task: "Create new ticket example",
-    status: "NEW",
-  },
-  {
-    task: "Update ticket report",
-    status: "DEFAULT",
-  },
-];
+import { listTask } from "./listTask";
+import { TaskInterface } from "../../types/type";
 
 const Task = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -47,6 +29,32 @@ const Task = () => {
     setListTasks([...[newTask], ...listTasks]);
   };
 
+  const isTaskIsDone = (doneTask: string) => {
+    setListTasks(
+      listTasks.map((prevData) =>
+        prevData.task == doneTask ? { ...prevData, isDone: true } : prevData
+      )
+    );
+
+    setTimeout(() => {
+      if (confirm("Are you sure task is done ?")) {
+        const newTasks = listTasks.filter((task) => {
+          return task.task != doneTask;
+        });
+
+        setListTasks(newTasks);
+      } else {
+        setListTasks(
+          listTasks.map((prevData) =>
+            prevData.task == doneTask
+              ? { ...prevData, isDone: false }
+              : prevData
+          )
+        );
+      }
+    }, 200);
+  };
+
   return (
     <>
       <ModalTaskForm
@@ -64,7 +72,7 @@ const Task = () => {
         <p className="text-sm text-slate-300">Today</p>
         <div className="flex justify-between items-center mt-6">
           <p className="text-slate-300">create new task</p>
-          {/* <p className="text-slate-400 text-lg bg-slate-200">+</p> */}
+
           <BsPlusSquare
             onClick={handleModal}
             className="text-slate-400 bg-slate-200 text-lg cursor-pointer hover:text-slate-700"
@@ -78,9 +86,10 @@ const Task = () => {
             >
               <div className="flex items-center pl-3">
                 <input
-                  id="vue-checkbox"
                   type="checkbox"
                   value=""
+                  onChange={() => isTaskIsDone(task.task)}
+                  checked={task.isDone}
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-full focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                 />
                 <label className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">

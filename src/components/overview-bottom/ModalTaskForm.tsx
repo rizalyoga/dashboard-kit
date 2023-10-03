@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TaskInterface } from "./Task";
+import { TaskInterface } from "../../types/type";
 
 interface ModalFormProps {
   openModal: boolean;
@@ -15,6 +15,7 @@ const ModalTaskForm = ({
   const [newTask, setNewTask] = useState<TaskInterface>({
     task: "",
     status: "DEFAULT",
+    isDone: false,
   });
 
   useEffect(() => {
@@ -36,9 +37,11 @@ const ModalTaskForm = ({
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createNewTask(newTask);
+
     setNewTask({
       task: "",
       status: "DEFAULT",
+      isDone: false,
     });
   };
 

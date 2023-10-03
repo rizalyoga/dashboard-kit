@@ -1,11 +1,25 @@
+import { useState, useEffect } from "react";
 import Logo from "../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
 import { listMenu } from "./listMenu";
 import { IoSettingsSharp } from "react-icons/io5";
 import { PiMedalFill } from "react-icons/pi";
 import { sidebarStyleActive, sidebarStyleInActive } from "./sidebarStyle";
+import { ListMenuInterface } from "../../types/type";
 
-const Sidebar = () => {
+const Sidebar = ({ role }: { role: string }) => {
+  const [listMenus, setListMenus] = useState<ListMenuInterface[]>(listMenu);
+
+  useEffect(() => {
+    if (role == "user") {
+      const newMenus = listMenu.filter((menu) => {
+        return menu.role === "user";
+      });
+
+      setListMenus(newMenus);
+    }
+  }, [role]);
+
   return (
     <div className="bg-light_background">
       <button
@@ -42,7 +56,7 @@ const Sidebar = () => {
             <h2 className="font-bold text-xl text-slate-400">Dashboard Kit</h2>
           </div>
           <ul className="space-y-2 font-medium">
-            {listMenu.map((menu) => (
+            {listMenus.map((menu) => (
               <NavLink
                 key={menu.name}
                 to={menu.link}

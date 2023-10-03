@@ -4,17 +4,21 @@ import avatar from "../../assets/person.jpg";
 
 const TableTickets = () => {
   return (
-    <div className="bg-white border border-slate-300 rounded-md">
+    <div className="bg-white border border-slate-300 rounded-md overflow-x-auto">
       <div className="p-6 flex justify-between">
         <h3 className="font-bold text-lg">All Tickets</h3>
         <div className="flex gap-6 font-bold text-sm text-slate-400 ">
           <span className="flex items-center justify-center gap-2">
             <FaSortAmountUp />
-            <p className="cursor-pointer hover:text-slate-500">Sort</p>
+            <p className="cursor-pointer hover:text-slate-500 hover:underline">
+              Sort
+            </p>
           </span>
           <span className="flex items-center justify-center gap-2">
             <FaFilter />
-            <p className="cursor-pointer hover:text-slate-500">Filter</p>
+            <p className="cursor-pointer hover:text-slate-500 hover:underline">
+              Filter
+            </p>
           </span>
         </div>
       </div>
@@ -38,10 +42,7 @@ const TableTickets = () => {
         </thead>
         <tbody>
           <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-purple-50 dark:hover:bg-gray-600 cursor-pointer">
-            <th
-              scope="row"
-              className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-            >
+            <td className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
               <img
                 className="w-10 h-10 rounded-full"
                 src={avatar}
@@ -55,7 +56,7 @@ const TableTickets = () => {
                   update 1 days ago
                 </p>
               </div>
-            </th>
+            </td>
             <td className="px-6 py-4">
               <p className="text-base text-slate-600 font-semibold">
                 Neil Sims
@@ -81,7 +82,7 @@ const TableTickets = () => {
           </tr>
           {/* Second Person */}
           <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-purple-50 dark:hover:bg-gray-600 cursor-pointer">
-            <th
+            <td
               scope="row"
               className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
             >
@@ -98,7 +99,7 @@ const TableTickets = () => {
                   update 1 days ago
                 </p>
               </div>
-            </th>
+            </td>
             <td className="px-6 py-4">
               <p className="text-base text-slate-600 font-semibold">
                 Neil Sims
@@ -124,7 +125,7 @@ const TableTickets = () => {
           </tr>
           {/* Third Person */}
           <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-purple-50 dark:hover:bg-gray-600 cursor-pointer">
-            <th
+            <td
               scope="row"
               className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
             >
@@ -141,7 +142,7 @@ const TableTickets = () => {
                   update 2 days ago
                 </p>
               </div>
-            </th>
+            </td>
             <td className="px-6 py-4">
               <p className="text-base text-slate-600 font-semibold">
                 Neil Sims

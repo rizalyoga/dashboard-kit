@@ -4,13 +4,15 @@ import Navbar from "../components/navbar/Navbar";
 const Layout = ({
   children,
   pageName,
+  role,
 }: {
   children: React.ReactNode;
   pageName: string;
+  role: string;
 }) => {
   return (
     <div className="sm:ml-64">
-      <Sidebar />
+      <Sidebar role={role as string} />
       <div>
         <Navbar pageName={pageName} />
         {children}
