@@ -11,7 +11,7 @@ const Layout = ({
   role: string;
 }) => {
   return (
-    <div className="sm:ml-64">
+    <div className="md:ml-64">
       <Sidebar role={role as string} />
       <div>
         <Navbar pageName={pageName} />

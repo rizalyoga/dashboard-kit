@@ -11,7 +11,7 @@ import { dataChart } from "./chartData";
 
 const Charts = () => {
   return (
-    <div className=" lg:basis-[75%] p-4 border-r border-slate-300">
+    <div className=" lg:basis-[75%] p-6 border-r border-slate-300">
       {/* HEADER */}
       <h3 className="font-bold">Today's Trends</h3>
       <div className="top-content mt-4 lg:flex lg:justify-between lg:items-center">

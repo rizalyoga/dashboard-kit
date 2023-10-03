@@ -166,6 +166,49 @@ const TableTickets = () => {
               <BsThreeDotsVertical className="font-bold text-xl cursor-pointer text-slate-400 hover:text-slate-500" />
             </td>
           </tr>
+          {/* FOURTH PERSON */}
+          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-purple-50 dark:hover:bg-gray-600 cursor-pointer">
+            <td
+              scope="row"
+              className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+            >
+              <img
+                className="w-10 h-10 rounded-full"
+                src={avatar}
+                alt="Jese image"
+              />
+              <div className="pl-3">
+                <p className="text-base text-slate-600 font-semibold">
+                  Avatar image not showing
+                </p>
+                <p className="font-xs text-gray-400 font-normal">
+                  update 2 days ago
+                </p>
+              </div>
+            </td>
+            <td className="px-6 py-4">
+              <p className="text-base text-slate-600 font-semibold">
+                Neil Sims
+              </p>
+              <p className="font-xs text-gray-400 font-normal">on 23.5.2023</p>
+            </td>
+            <td className="px-6 py-4">
+              <div className="flex flex-col">
+                <p className="text-base text-slate-600 font-semibold">
+                  May 23, 2023
+                </p>
+                <p className="font-xs text-gray-400 font-normal">6:12 PM</p>
+              </div>
+            </td>
+            <td className="px-6 py-4">
+              <span className="px-3 py-1 bg-green-400 text-white text-sm text-center rounded-full">
+                NORMAL
+              </span>
+            </td>
+            <td>
+              <BsThreeDotsVertical className="font-bold text-xl cursor-pointer text-slate-400 hover:text-slate-500" />
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

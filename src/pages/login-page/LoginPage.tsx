@@ -83,7 +83,7 @@ const LoginPage = () => {
           <span className="flex flex-col">
             <label className="text-base">EMAIL</label>
             <input
-              className="rounded-sm placeholder:text-sm text-black"
+              className="rounded-md placeholder:text-sm text-black"
               name="email"
               type="email"
               placeholder="Email address"
@@ -100,7 +100,7 @@ const LoginPage = () => {
             </span>
             <div className="relative flex">
               <input
-                className="relative w-full rounded-sm placeholder:text-sm text-black"
+                className="relative w-full rounded-md placeholder:text-sm text-black"
                 name="password"
                 type={isShowPassword ? "text" : "password"}
                 placeholder="Password"

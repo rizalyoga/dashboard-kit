@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { HiMenuAlt2 } from "react-icons/hi";
 import Logo from "../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
 import { listMenu } from "./listMenu";
@@ -8,17 +9,25 @@ import { sidebarStyleActive, sidebarStyleInActive } from "./sidebarStyle";
 import { ListMenuInterface } from "../../types/type";
 
 const Sidebar = ({ role }: { role: string }) => {
-  const [listMenus, setListMenus] = useState<ListMenuInterface[]>(listMenu);
+  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
 
-  useEffect(() => {
-    if (role == "user") {
-      const newMenus = listMenu.filter((menu) => {
-        return menu.role === "user";
-      });
+  const [listMenus] = useState<ListMenuInterface[]>(
+    role == "user"
+      ? listMenu.filter((menu) => {
+          return menu.role === "user";
+        })
+      : listMenu
+  );
 
-      setListMenus(newMenus);
-    }
-  }, [role]);
+  const openSidebar = () => {
+    setIsOpenSidebar((open) => !open);
+  };
+
+  const openSidebarStyle =
+    "fixed top-0 left-0 z-40 w-64 h-screen transition-transform translate-x-0 md:translate-x-0";
+
+  const closeSidebarStyle =
+    "fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0";
 
   return (
     <div className="bg-light_background">
@@ -27,7 +36,8 @@ const Sidebar = ({ role }: { role: string }) => {
         data-drawer-toggle="separator-sidebar"
         aria-controls="separator-sidebar"
         type="button"
-        className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        onClick={openSidebar}
+        className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 z-30"
       >
         <span className="sr-only">Open sidebar</span>
         <svg
@@ -47,11 +57,15 @@ const Sidebar = ({ role }: { role: string }) => {
 
       <aside
         id="separator-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        className={isOpenSidebar ? openSidebarStyle : closeSidebarStyle}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-primmary_dark text-slate-400 dark:bg-gray-800">
-          <div className="flex items-center mb-8 mt-3">
+          <HiMenuAlt2
+            className="block md:hidden text-3xl mb-7 cursor-pointer hover:border hover:border-slate-400 rounded-md"
+            onClick={openSidebar}
+          />
+          <div className="flex items-center mb-8 mt-3.5">
             <img className="w-[34px] mr-2" src={Logo} alt="logo" />
             <h2 className="font-bold text-xl text-slate-400">Dashboard Kit</h2>
           </div>
@@ -65,7 +79,7 @@ const Sidebar = ({ role }: { role: string }) => {
                 }
               >
                 <li className="cursor-pointer my-2">
-                  <p className="flex items-center hover:bg-gray-400 p-2 rounded-lg  group">
+                  <p className="flex items-center hover:bg-gray-400 p-2 rounded-lg transition group">
                     <span className="text-lg">{menu.icon}</span>
                     <span className="ml-5">{menu.name}</span>
                   </p>
@@ -75,7 +89,7 @@ const Sidebar = ({ role }: { role: string }) => {
           </ul>
           <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-gray-600 dark:border-gray-700">
             <li className="cursor-pointer">
-              <p className="flex items-center p-2 rounded-lg dark:text-white hover:bg-gray-400 hover:text-white dark:hover:bg-gray-700 group">
+              <p className="flex items-center p-2 rounded-lg dark:text-white hover:bg-gray-400 hover:text-white dark:hover:bg-gray-700 transition group">
                 <span className="text-lg">
                   <IoSettingsSharp />
                 </span>
@@ -83,7 +97,7 @@ const Sidebar = ({ role }: { role: string }) => {
               </p>
             </li>
             <li className="cursor-pointer">
-              <p className="flex items-center p-2 text-slate-500 rounded-lg dark:text-white hover:bg-gray-400 hover:text-white dark:hover:bg-gray-700 group">
+              <p className="flex items-center p-2 text-slate-500 rounded-lg dark:text-white hover:bg-gray-400 hover:text-white dark:hover:bg-gray-700 transition group">
                 <span className="text-lg">
                   <PiMedalFill />
                 </span>
