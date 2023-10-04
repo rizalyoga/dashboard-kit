@@ -14,7 +14,15 @@ Implementation of dashboard UI design into website.
 
 Here is a working live demo : https://anime-war-rizalyoga.vercel.app/ -->
 
-<!-- ## 🎥 Video Demo -->
+## 🎥 Video Demo
+[vokoscreenNG-2023-10-04_12-48-12.webm](https://github.com/rizalyoga/dashboard-kit/assets/28485636/fdc33171-dae0-4b3b-b9d2-40f6e5a5f926)
+
+## 🔮 Features
+
+- Login account admin & user (admin account : admin@admin.com, pass:12345678 | user account: user@user.com, pass: 12345678)
+- Sort data by name
+- Sort data by date
+- Filter data by priority
 
 ## 🖼️ Pages
 
@@ -26,16 +34,9 @@ Here is a working live demo : https://anime-war-rizalyoga.vercel.app/ -->
 
 <img src="./src/assets/ss/overview-dashboard.png" alt="Logo" width="100%" height="auto" />
 
-### Skills page
+### User Page
 
 <img src="./src/assets/ss/user-dashboard.png" alt="Logo" width="100%" height="auto" />
-
-## 🔮 Features
-
-- Login account user & admin
-- Sort data by name
-- Sort data by date
-- Filter data by priority
 
 ## 🧰 Run in locale
 
@@ -57,7 +58,7 @@ $ yarn dev
 
 ## ⛏️ Built with
 
-- [Reacr JS](https://react.dev/) - React is a JavaScript library used to build component-based interactive user interfaces. React is created by Facebook and is open-source, so anyone can use it for free.
+- [React JS](https://react.dev/) - React is a JavaScript library used to build component-based interactive user interfaces. React is created by Facebook and is open-source, so anyone can use it for free.
 - [Node JS v20.4.0](https://nodejs.org/id) - Node.js is an open-source, cross-platform JavaScript runtime environment.
 - [Yarn](https://yarnpkg.com/) - Yarn is a package manager that doubles down as project manager.
 
