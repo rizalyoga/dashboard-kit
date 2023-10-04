@@ -7,7 +7,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { dataChart } from "./chartData";
+import { dataChart } from "../../data/chartData";
 
 const Charts = () => {
   return (

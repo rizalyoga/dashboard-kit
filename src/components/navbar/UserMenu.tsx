@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UserMenu = ({
   showMenu,
@@ -10,10 +11,19 @@ const UserMenu = ({
   const role = sessionStorage.getItem("AuthRole");
   const navigate = useNavigate();
   const logOut = () => {
-    if (confirm("Are you sure to log out ?")) {
-      sessionStorage.clear();
-      navigate("/login");
-    }
+    Swal.fire({
+      text: "Are you sure to sign out ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3751FF",
+      cancelButtonColor: "#525252",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        sessionStorage.clear();
+        navigate("/login");
+      }
+    });
   };
 
   return (
@@ -21,7 +31,7 @@ const UserMenu = ({
       className={showMenu ? "fixed top-0 left-0 w-full h-full z-10" : "hidden"}
       onClick={showMenuUser}
     >
-      <div className="absolute w-48 right-10 top-28 sm:top-16 divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 bg-white">
+      <div className="absolute w-48 right-10 top-28 md:top-16 divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 bg-white">
         <div className=" px-4 py-3">
           <span className="block text-sm text-gray-900 dark:text-white">
             Jones Ferdinand

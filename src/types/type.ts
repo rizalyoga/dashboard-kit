@@ -15,3 +15,12 @@ export interface ListMenuInterface {
   icon: React.ReactNode;
   role: string;
 }
+
+export interface TicketsDataInterface {
+  id: number;
+  ticket: string;
+  customer_name: string;
+  date: string;
+  time: string;
+  priority: string;
+}

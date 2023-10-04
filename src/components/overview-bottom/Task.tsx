@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BsPlusSquare } from "react-icons/bs";
 import ModalTaskForm from "./ModalTaskForm";
-import { listTask } from "./listTask";
+import { listTask } from "../../data/listTask";
 import { TaskInterface } from "../../types/type";
+import Swal from "sweetalert2";
 
 const Task = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -37,21 +38,30 @@ const Task = () => {
     );
 
     setTimeout(() => {
-      if (confirm("Are you sure task is done ?")) {
-        const newTasks = listTasks.filter((task) => {
-          return task.task != doneTask;
-        });
+      Swal.fire({
+        text: "Are you sure task is done ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3751FF",
+        cancelButtonColor: "#52525C",
+        confirmButtonText: "Yes",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const newTasks = listTasks.filter((task) => {
+            return task.task != doneTask;
+          });
 
-        setListTasks(newTasks);
-      } else {
-        setListTasks(
-          listTasks.map((prevData) =>
-            prevData.task == doneTask
-              ? { ...prevData, isDone: false }
-              : prevData
-          )
-        );
-      }
+          setListTasks(newTasks);
+        } else {
+          setListTasks(
+            listTasks.map((prevData) =>
+              prevData.task == doneTask
+                ? { ...prevData, isDone: false }
+                : prevData
+            )
+          );
+        }
+      });
     }, 200);
   };
 
