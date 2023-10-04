@@ -1,27 +1,66 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- PROJECT LOGO -->
 
-Currently, two official plugins are available:
+<img src="./src/assets/logo.svg" alt="Logo" width="240" height="auto" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
 
-## Expanding the ESLint configuration
+# Dashboard Kit
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Implementation of dashboard UI design into website.
 
-- Configure the top-level `parserOptions` property like this:
+<!-- ## ✨ Demo
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+Here is a working live demo : https://anime-war-rizalyoga.vercel.app/ -->
+
+<!-- ## 🎥 Video Demo -->
+
+## 🖼️ Pages
+
+### Login Page
+
+<img src="./src/assets/ss/login-dashboard.png" alt="Logo" width="100%" height="auto" />
+
+### Admin Page
+
+<img src="./src/assets/ss/overview-dashboard.png" alt="Logo" width="100%" height="auto" />
+
+### Skills page
+
+<img src="./src/assets/ss/user-dashboard.png" alt="Logo" width="100%" height="auto" />
+
+## 🔮 Features
+
+- Login account user & admin
+- Sort data by name
+- Sort data by date
+- Filter data by priority
+
+## 🧰 Run in locale
+
+To clone and run this website, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [yarn](https://yarnpkg.com/)) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/rizalyoga/dashboard-kit.git
+
+# Go into the repository
+$ cd dashboard-kit
+
+# Install dependencies
+$ yarn
+
+# Run the app
+$ yarn dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## ⛏️ Built with
+
+- [Reacr JS](https://react.dev/) - React is a JavaScript library used to build component-based interactive user interfaces. React is created by Facebook and is open-source, so anyone can use it for free.
+- [Node JS v20.4.0](https://nodejs.org/id) - Node.js is an open-source, cross-platform JavaScript runtime environment.
+- [Yarn](https://yarnpkg.com/) - Yarn is a package manager that doubles down as project manager.
+
+## 👤 Authors
+
+- [Rizalyoga](https://github.com/rizalyoga/)
