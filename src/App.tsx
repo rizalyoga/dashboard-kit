@@ -1,9 +1,10 @@
-import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/login-page/LoginPage";
 import AdminDashboard from "./pages/dashboard-page/AdminDashboard";
 import TicketPage from "./pages/tickets-page/TicketPage";
 import ErrorPage from "./pages/error-page/ErrorPage";
+import AllTasks from "./pages/all-tasks/AllTasks";
+import UnresolvedTicket from "./pages/unresolved-ticket/UnresolvedTicket";
 
 function App() {
   const Router = createBrowserRouter([
@@ -23,6 +24,14 @@ function App() {
     {
       path: "/tickets",
       element: <TicketPage />,
+    },
+    {
+      path: "/all-tasks",
+      element: <AllTasks />,
+    },
+    {
+      path: "/unresolved-tasks",
+      element: <UnresolvedTicket />,
     },
   ]);
   return (

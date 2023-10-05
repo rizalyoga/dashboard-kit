@@ -1,9 +1,21 @@
+import { useLocation, useNavigate } from "react-router-dom";
+
 const UnresolvedTickets = () => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   return (
-    <div className="basis-1/2 bg-white border-2 border-slate-200 rounded-md p-6 mb-6 lg:mb-0">
+    <div className=" bg-white border-2 border-slate-200 rounded-md p-6 lg:mb-0">
       <div className="flex justify-between items-center">
         <h6 className="font-bold text-lg">Unresolved Tickets</h6>
-        <p className="text-primmary_blue hover:underline cursor-pointer">
+        <p
+          onClick={() => navigate("/unresolved-tasks")}
+          className={
+            pathname != "/unresolved-tasks"
+              ? "text-primmary_blue hover:underline cursor-pointer"
+              : "hidden"
+          }
+        >
           view details
         </p>
       </div>

@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { BsPlusSquare } from "react-icons/bs";
-import ModalTaskForm from "./ModalTaskForm";
 import { listTask } from "../../data/listTask";
 import { TaskInterface } from "../../types/type";
 import Swal from "sweetalert2";
+import ModalFormContainer from "../modal/ModalFormContainer";
 
 const Task = () => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [openModal, setOpenModal] = useState(false);
   const [listTasks, setListTasks] = useState<TaskInterface[]>(listTask);
 
@@ -67,15 +70,22 @@ const Task = () => {
 
   return (
     <>
-      <ModalTaskForm
+      <ModalFormContainer
         openModal={openModal}
         handleModal={handleModal}
-        createNewTask={createNewTask}
+        createTaskFunction={createNewTask}
       />
-      <div className="basis-1/2 bg-white border-2 border-slate-200 rounded-md p-6">
+      <div className=" bg-white border-2 border-slate-200 rounded-md p-6">
         <div className="flex justify-between items-center">
           <h6 className="font-bold text-lg">Tasks</h6>
-          <p className="text-primmary_blue hover:underline cursor-pointer">
+          <p
+            onClick={() => navigate("/all-tasks")}
+            className={
+              pathname == "/all-tasks"
+                ? "hidden"
+                : "text-primmary_blue hover:underline cursor-pointer"
+            }
+          >
             view all
           </p>
         </div>

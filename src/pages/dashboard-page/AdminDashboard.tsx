@@ -5,20 +5,19 @@ import UnresolvedTickets from "../../components/overview-bottom/UnresolvedTicket
 import DescriptionCol from "../../components/overview-mid/DescriptionCol";
 import Charts from "../../components/overview-mid/Charts";
 import PrivatePage from "../../layout/PrivatePage";
+import { authRole } from "../../helper/getRoleAuth";
 
 const AdminDashboard = () => {
-  const auth = sessionStorage.getItem("AuthRole");
-
   return (
-    <PrivatePage isSignedIn={auth}>
-      <Layout pageName="Overview" role={auth as string}>
+    <PrivatePage isSignedIn={authRole}>
+      <Layout pageName="Overview" role={authRole as string}>
         <div className="px-6 pt-10 pb-6 bg-light_background flex flex-col gap-6">
           <TopOverview />
           <div className=" bg-white flex flex-col lg:flex-row border border-slate-300 rounded-md lg:overflow-x-auto">
             <Charts />
             <DescriptionCol />
           </div>
-          <div className=" lg:flex gap-6">
+          <div className=" grid grid-flow-row gap-6 lg:grid-cols-2">
             <UnresolvedTickets />
             <Task />
           </div>

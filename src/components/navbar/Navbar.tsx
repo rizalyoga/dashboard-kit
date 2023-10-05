@@ -40,7 +40,7 @@ const Navbar = ({ pageName }: { pageName: string }) => {
         <span className="text-xl text-slate-300">|</span>
         <p className="text-black hidden md:block">Jones Ferdinand</p>
         <img
-          className="w-10 h-10 rounded-full cursor-pointer"
+          className="w-10 h-10 rounded-full cursor-pointer -mt-1"
           src={personAvatar}
           alt="Rounded avatar"
           onClick={showMenuUser}
