@@ -16,7 +16,7 @@ Here is a working live demo : https://anime-war-rizalyoga.vercel.app/ -->
 
 ## 🎥 Video Demo
 
-[vokoscreenNG-2023-10-04_12-48-12.webm](https://github.com/rizalyoga/dashboard-kit/assets/28485636/fdc33171-dae0-4b3b-b9d2-40f6e5a5f926)
+[dashboard-demo.webm](https://github.com/rizalyoga/dashboard-kit/assets/28485636/79cf1f95-81d3-4821-a3d0-8f6831b51bd8)
 
 ## 🔮 Features
 
