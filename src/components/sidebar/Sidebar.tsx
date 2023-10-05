@@ -30,7 +30,7 @@ const Sidebar = ({ role }: { role: string }) => {
     "fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0";
 
   return (
-    <div className="bg-light_background">
+    <div className="bg-light_background dark:bg-dark_background">
       <button
         data-drawer-target="separator-sidebar"
         data-drawer-toggle="separator-sidebar"

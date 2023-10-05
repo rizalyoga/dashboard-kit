@@ -7,7 +7,7 @@ const AllTasks = () => {
   return (
     <PrivatePage isSignedIn={authRole}>
       <Layout role={authRole as string} pageName="All Tasks">
-        <div className="px-5 pt-10 pb-6 bg-light_background min-h-screen">
+        <div className="px-5 pt-10 pb-6 bg-light_background dark:bg-dark_background min-h-screen">
           <Task />
         </div>
       </Layout>

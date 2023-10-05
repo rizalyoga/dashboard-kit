@@ -15,6 +15,7 @@ Implementation of dashboard UI design into website.
 Here is a working live demo : https://anime-war-rizalyoga.vercel.app/ -->
 
 ## 🎥 Video Demo
+
 [vokoscreenNG-2023-10-04_12-48-12.webm](https://github.com/rizalyoga/dashboard-kit/assets/28485636/fdc33171-dae0-4b3b-b9d2-40f6e5a5f926)
 
 ## 🔮 Features
@@ -23,6 +24,8 @@ Here is a working live demo : https://anime-war-rizalyoga.vercel.app/ -->
 - Sort data by name
 - Sort data by date
 - Filter data by priority
+- Create new ticket
+- Dark Mode
 
 ## 🖼️ Pages
 

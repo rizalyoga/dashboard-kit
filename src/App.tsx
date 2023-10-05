@@ -35,7 +35,7 @@ function App() {
     },
   ]);
   return (
-    <div>
+    <div className="bg-light_background dark:bg-dark_background transition">
       <RouterProvider router={Router} />
     </div>
   );

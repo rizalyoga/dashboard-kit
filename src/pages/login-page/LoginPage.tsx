@@ -3,6 +3,7 @@ import Logo from "../../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { authenticationOption } from "../../helper/authentication";
+import { alertError } from "../../helper/alertError";
 
 const LoginPage = () => {
   const auth = sessionStorage.getItem("AuthRole");
@@ -33,11 +34,12 @@ const LoginPage = () => {
     }
   }, [auth, navigate]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (login.password.length < 8) {
-      alert("Sorry password must contain at least 8 character");
+      alertError("Sorry password must contain at least 8 character");
     } else if (!login.email.includes("@")) {
-      alert("Please check your email format");
+      alertError("Please check your email format");
     } else {
       authenticationOption(login);
     }
@@ -67,10 +69,10 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-[100vh] flex justify-center items-center bg-primmary_dark">
-      <div className="w-full mx-4 bg-white flex justify-center items-center flex-col rounded-md py-12 px-4 md:w-[48%] lg:w-[40%] xl:w-[28%] 2xl:w-[24%]">
+      <div className="w-full mx-4 bg-white dark:bg-dark_background border border-slate-300 flex justify-center items-center flex-col rounded-md py-12 px-4 md:w-[48%] lg:w-[40%] xl:w-[28%] 2xl:w-[24%]">
         <img className="w-[42px]" src={Logo} alt="logo-dashboard" />
         <p className="text-lg font-bold text-slate-400 mb-6">Dashboard Kit</p>
-        <h3 className="font-bold text-2xl mb-1 text-center">
+        <h3 className="font-bold text-2xl mb-1 text-center dark:text-slate-300">
           Log In to Dashboard Kit
         </h3>
         <p className="text-sm text-slate-400 mb-8">
@@ -83,7 +85,7 @@ const LoginPage = () => {
           <span className="flex flex-col">
             <label className="text-base">EMAIL</label>
             <input
-              className="rounded-md placeholder:text-sm text-black"
+              className="rounded-md placeholder:text-sm text-black dark:bg-dark_background dark:text-white"
               name="email"
               type="email"
               placeholder="Email address"
@@ -100,7 +102,7 @@ const LoginPage = () => {
             </span>
             <div className="relative flex">
               <input
-                className="relative w-full rounded-md placeholder:text-sm text-black"
+                className="relative w-full rounded-md placeholder:text-sm text-black dark:bg-dark_background dark:text-white"
                 name="password"
                 type={isShowPassword ? "text" : "password"}
                 placeholder="Password"

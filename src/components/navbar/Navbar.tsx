@@ -16,9 +16,9 @@ const Navbar = ({ pageName }: { pageName: string }) => {
   };
 
   return (
-    <div className="pt-7 px-6 bg-light_background flex justify-between items-center">
+    <div className="pt-7 px-6  flex justify-between items-center">
       <div>
-        <h1 className="font-bold text-2xl">{pageName}</h1>
+        <h1 className="font-bold text-2xl dark:text-slate-300">{pageName}</h1>
       </div>
       <div className="flex justify-center items-center gap-4 text-slate-400">
         <form>
@@ -38,7 +38,9 @@ const Navbar = ({ pageName }: { pageName: string }) => {
         />
         <BsFillBellFill className="cursor-pointer hover:text-slate-700" />
         <span className="text-xl text-slate-300">|</span>
-        <p className="text-black hidden md:block">Jones Ferdinand</p>
+        <p className="text-black hidden md:block dark:text-slate-300">
+          Jones Ferdinand
+        </p>
         <img
           className="w-10 h-10 rounded-full cursor-pointer -mt-1"
           src={personAvatar}

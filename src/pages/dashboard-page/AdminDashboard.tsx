@@ -11,7 +11,7 @@ const AdminDashboard = () => {
   return (
     <PrivatePage isSignedIn={authRole}>
       <Layout pageName="Overview" role={authRole as string}>
-        <div className="px-6 pt-10 pb-6 bg-light_background flex flex-col gap-6">
+        <div className="px-6 pt-10 pb-6  flex flex-col gap-6">
           <TopOverview />
           <div className=" bg-white flex flex-col lg:flex-row border border-slate-300 rounded-md lg:overflow-x-auto">
             <Charts />
