@@ -7,13 +7,13 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { dataChart } from "../../data/chartData";
+import { dataChart } from "../../../data/chartData";
 
 const Charts = () => {
   return (
     <div className=" lg:basis-[75%] p-6 border-r border-slate-300 dark:bg-dark_background">
       {/* HEADER */}
-      <h3 className="font-bold dark:text-slate-300">Today's Trends</h3>
+      <h3 className="title-sub-content ">Today's Trends</h3>
       <div className="top-content mt-4 lg:flex lg:justify-between lg:items-center">
         <p className="text-slate-400 text-xs">as of 25 May 2022, 09:41 PM</p>
         <div className="flex mt-2 md:mt-0 justify-end lg:justify-between gap-6 ">

@@ -27,16 +27,16 @@ const Navbar = ({ pageName }: { pageName: string }) => {
             placeholder="Search..."
             className={
               openSearchForm
-                ? "rounded-md border-slate-400 text-black text-sm"
+                ? "rounded-md border-slate-400 text-black text-sm dark:bg-slate-300 dark:text-slate-800"
                 : "hidden"
             }
           />
         </form>
         <BsSearch
           onClick={showSearchInput}
-          className="cursor-pointer hover:text-slate-700"
+          className="cursor-pointer hover:text-slate-700 dark:hover:text-slate-100"
         />
-        <BsFillBellFill className="cursor-pointer hover:text-slate-700" />
+        <BsFillBellFill className="cursor-pointer hover:text-slate-700 dark:hover:text-slate-100" />
         <span className="text-xl text-slate-300">|</span>
         <p className="text-black hidden md:block dark:text-slate-300">
           Jones Ferdinand

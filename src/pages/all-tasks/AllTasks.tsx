@@ -1,4 +1,4 @@
-import Task from "../../components/overview-bottom/Task";
+import Task from "../../components/overview-page-content/overview-bottom/Task";
 import { authRole } from "../../helper/getRoleAuth";
 import PrivatePage from "../../layout/PrivatePage";
 import Layout from "../../layout/Layout";

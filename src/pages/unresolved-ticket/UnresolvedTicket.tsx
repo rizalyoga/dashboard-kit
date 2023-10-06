@@ -1,7 +1,7 @@
 import { authRole } from "../../helper/getRoleAuth";
 import PrivatePage from "../../layout/PrivatePage";
 import Layout from "../../layout/Layout";
-import UnresolvedTickets from "../../components/overview-bottom/UnresolvedTickets";
+import UnresolvedTickets from "../../components/overview-page-content/overview-bottom/UnresolvedTickets";
 
 const UnresolvedTicket = () => {
   return (

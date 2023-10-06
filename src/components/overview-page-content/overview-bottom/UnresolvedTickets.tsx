@@ -7,9 +7,7 @@ const UnresolvedTickets = () => {
   return (
     <div className=" bg-white dark:bg-dark_background border border-slate-300 rounded-md p-6 lg:mb-0">
       <div className="flex justify-between items-center">
-        <h6 className="font-bold text-lg dark:text-slate-300">
-          Unresolved Tickets
-        </h6>
+        <h6 className="title-sub-content ">Unresolved Tickets</h6>
         <p
           onClick={() => navigate("/unresolved-tasks")}
           className={

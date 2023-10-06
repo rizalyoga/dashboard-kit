@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { BsPlusSquare } from "react-icons/bs";
-import { listTask } from "../../data/listTask";
-import { TaskInterface } from "../../types/type";
+import { listTask } from "../../../data/listTask";
+import { TaskInterface } from "../../../types/type";
 import Swal from "sweetalert2";
-import ModalFormContainer from "../modal/ModalFormContainer";
+import ModalFormContainer from "../../modal/ModalFormContainer";
 
 const Task = () => {
   const navigate = useNavigate();
@@ -77,7 +77,7 @@ const Task = () => {
       />
       <div className=" bg-white dark:bg-dark_background border border-slate-300 rounded-md p-6">
         <div className="flex justify-between items-center">
-          <h6 className="font-bold text-lg dark:text-slate-300">Tasks</h6>
+          <h6 className="title-sub-content ">Tasks</h6>
           <p
             onClick={() => navigate("/all-tasks")}
             className={

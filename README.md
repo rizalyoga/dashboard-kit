@@ -29,17 +29,13 @@ Here is a working live demo : https://anime-war-rizalyoga.vercel.app/ -->
 
 ## 🖼️ Pages
 
-### Login Page
-
-<img src="./src/assets/ss/login-dashboard.png" alt="Logo" width="100%" height="auto" />
-
-### Admin Page
-
-<img src="./src/assets/ss/overview-dashboard.png" alt="Logo" width="100%" height="auto" />
-
-### User Page
-
-<img src="./src/assets/ss/user-dashboard.png" alt="Logo" width="100%" height="auto" />
+|           Login Page Light Mode           |         Login Page Dark Mode         |
+| :---------------------------------------: | :----------------------------------: |
+|  ![](src/assets/ss/login-dashboard.png)   |  ![](src/assets/ss/dark-login.png)   |
+|      <b>Overview Page Light Mode</b>      |    <b>Overview Page Dark Mode</b>    |
+| ![](src/assets/ss/overview-dashboard.png) | ![](src/assets/ss/dark-overview.png) |
+|       <b>Ticket Page Light Mode</b>       |    <b>Ticket Page Light Mode</b>     |
+|   ![](src/assets/ss/user-dashboard.png)   |  ![](src/assets/ss/dark-ticket.png)  |
 
 ## 🧰 Run in locale
 
