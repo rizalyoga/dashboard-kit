@@ -1,6 +1,7 @@
 import { TicketsDataInterface } from "../../types/type";
 import avatar from "../../assets/person.jpg";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import clsx from "clsx";
 
 const ListTableComponent = ({ ticket }: { ticket: TicketsDataInterface }) => {
   const setBackgroundPriority = (priority: string) => {
@@ -16,7 +17,11 @@ const ListTableComponent = ({ ticket }: { ticket: TicketsDataInterface }) => {
   return (
     <tr
       key={ticket.id}
-      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-purple-50 dark:hover:bg-gray-600 cursor-pointer"
+      className={clsx(
+        "bg-white border-b cursor-pointer",
+        "hover:bg-purple-50",
+        "dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-600"
+      )}
     >
       <td className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
         <img className="w-10 h-10 rounded-full" src={avatar} alt="Jese image" />

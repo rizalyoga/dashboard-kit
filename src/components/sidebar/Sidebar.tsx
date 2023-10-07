@@ -7,6 +7,7 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { PiMedalFill } from "react-icons/pi";
 import { sidebarStyleActive, sidebarStyleInActive } from "./sidebarStyle";
 import { ListMenuInterface } from "../../types/type";
+import clsx from "clsx";
 
 const Sidebar = ({ role }: { role: string }) => {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
@@ -23,11 +24,9 @@ const Sidebar = ({ role }: { role: string }) => {
     setIsOpenSidebar((open) => !open);
   };
 
-  const openSidebarStyle =
-    "fixed top-0 left-0 z-40 w-64 h-screen transition-transform translate-x-0 md:translate-x-0";
+  const openSidebarStyle = " translate-x-0 ";
 
-  const closeSidebarStyle =
-    "fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0";
+  const closeSidebarStyle = "-translate-x-full ";
 
   return (
     <div className="bg-light_background dark:bg-dark_background">
@@ -37,7 +36,13 @@ const Sidebar = ({ role }: { role: string }) => {
         aria-controls="separator-sidebar"
         type="button"
         onClick={openSidebar}
-        className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 z-30"
+        className={clsx(
+          "inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg z-30",
+          "md:hidden",
+          "hover:bg-gray-100",
+          "focus:outline-none focus:ring-2 focus:ring-gray-200",
+          "dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        )}
       >
         <span className="sr-only">Open sidebar</span>
         <svg
@@ -57,12 +62,19 @@ const Sidebar = ({ role }: { role: string }) => {
 
       <aside
         id="separator-sidebar"
-        className={isOpenSidebar ? openSidebarStyle : closeSidebarStyle}
+        className={clsx(
+          isOpenSidebar ? openSidebarStyle : closeSidebarStyle,
+          "fixed top-0 left-0 z-40 w-64 h-screen transition-transform md:translate-x-0"
+        )}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-primmary_dark text-slate-400 dark:bg-gray-800">
           <HiMenuAlt2
-            className="block md:hidden text-3xl mb-7 cursor-pointer hover:border hover:border-slate-400 rounded-md"
+            className={clsx(
+              "block text-3xl mb-7 rounded-md cursor-pointer",
+              "md:hidden",
+              "hover:border hover:border-slate-400"
+            )}
             onClick={openSidebar}
           />
           <div className="flex items-center mb-8 mt-3.5">
@@ -79,7 +91,7 @@ const Sidebar = ({ role }: { role: string }) => {
                 }
               >
                 <li className="cursor-pointer my-2">
-                  <p className="flex items-center hover:bg-gray-400 p-2 rounded-lg transition group">
+                  <p className="flex items-center p-2 rounded-lg transition hover:bg-gray-400 group">
                     <span className="text-lg">{menu.icon}</span>
                     <span className="ml-5">{menu.name}</span>
                   </p>
@@ -89,7 +101,13 @@ const Sidebar = ({ role }: { role: string }) => {
           </ul>
           <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-gray-600 dark:border-gray-700">
             <li className="cursor-pointer">
-              <p className="flex items-center p-2 rounded-lg dark:text-white hover:bg-gray-400 hover:text-white dark:hover:bg-gray-700 transition group">
+              <p
+                className={clsx(
+                  "flex items-center p-2 rounded-lg transition group",
+                  "hover:bg-gray-400 hover:text-white",
+                  "dark:text-white dark:hover:bg-gray-700"
+                )}
+              >
                 <span className="text-lg">
                   <IoSettingsSharp />
                 </span>
@@ -97,7 +115,13 @@ const Sidebar = ({ role }: { role: string }) => {
               </p>
             </li>
             <li className="cursor-pointer">
-              <p className="flex items-center p-2 text-slate-500 rounded-lg dark:text-white hover:bg-gray-400 hover:text-white dark:hover:bg-gray-700 transition group">
+              <p
+                className={clsx(
+                  "flex items-center p-2 text-slate-500 rounded-lg transition group",
+                  "hover:bg-gray-400 hover:text-white",
+                  "dark:text-white dark:hover:bg-gray-700"
+                )}
+              >
                 <span className="text-lg">
                   <PiMedalFill />
                 </span>

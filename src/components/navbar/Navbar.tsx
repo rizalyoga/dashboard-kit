@@ -16,7 +16,7 @@ const Navbar = ({ pageName }: { pageName: string }) => {
   };
 
   return (
-    <div className="pt-7 px-6  flex justify-between items-center">
+    <div className="pt-7 px-6 flex justify-between items-center">
       <div>
         <h1 className="font-bold text-2xl dark:text-slate-300">{pageName}</h1>
       </div>

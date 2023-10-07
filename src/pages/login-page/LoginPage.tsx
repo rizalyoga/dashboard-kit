@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { authenticationOption } from "../../helper/authentication";
 import { alertError } from "../../helper/alertError";
+import clsx from "clsx";
 
 const LoginPage = () => {
   const auth = sessionStorage.getItem("AuthRole");
@@ -45,21 +46,13 @@ const LoginPage = () => {
     }
   };
 
-  const showPasswordComponents = () => {
+  const showPasswordComponents = (style: string) => {
     if (!isShowPassword) {
       return (
-        <AiFillEyeInvisible
-          onClick={showPasswordVisible}
-          className="absolute text-xl mt-2.5 mr-2 right-0 cursor-pointer"
-        />
+        <AiFillEyeInvisible onClick={showPasswordVisible} className={style} />
       );
     } else {
-      return (
-        <AiFillEye
-          onClick={showPasswordVisible}
-          className="absolute text-xl mt-2.5 mr-2 right-0 cursor-pointer"
-        />
-      );
+      return <AiFillEye onClick={showPasswordVisible} className={style} />;
     }
   };
 
@@ -69,10 +62,24 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-[100vh] flex justify-center items-center bg-primmary_dark">
-      <div className="w-full mx-4 bg-white dark:bg-dark_background border border-slate-300 flex justify-center items-center flex-col rounded-md py-12 px-4 md:w-[48%] lg:w-[40%] xl:w-[28%] 2xl:w-[24%]">
+      <div
+        className={clsx(
+          "w-full mx-4 bg-white border border-slate-300 flex justify-center items-center flex-col rounded-md py-12 px-4",
+          "md:w-[48%]",
+          "lg:w-[40%]",
+          "xl:w-[28%]",
+          "2xl:w-[24%]",
+          "dark:bg-dark_background"
+        )}
+      >
         <img className="w-[42px]" src={Logo} alt="logo-dashboard" />
         <p className="text-lg font-bold text-slate-400 mb-6">Dashboard Kit</p>
-        <h3 className="font-bold text-2xl mb-1 text-center dark:text-slate-300">
+        <h3
+          className={clsx(
+            "font-bold text-2xl mb-1 text-center",
+            " dark:text-slate-300"
+          )}
+        >
           Log In to Dashboard Kit
         </h3>
         <p className="text-sm text-slate-400 mb-8">
@@ -85,7 +92,10 @@ const LoginPage = () => {
           <span className="flex flex-col">
             <label className="text-base">EMAIL</label>
             <input
-              className="rounded-md placeholder:text-sm text-black dark:bg-dark_background dark:text-white"
+              className={clsx(
+                "rounded-md placeholder:text-sm text-black",
+                " dark:bg-dark_background dark:text-white"
+              )}
               name="email"
               type="email"
               placeholder="Email address"
@@ -96,24 +106,32 @@ const LoginPage = () => {
           <span className="flex flex-col">
             <span className="flex justify-between">
               <label className="text-sm">PASSWORD</label>
-              <p className="text-sm hover:underline cursor-pointer">
+              <p className={clsx("text-sm cursor-pointer", "hover:underline")}>
                 Forgot password ?
               </p>
             </span>
             <div className="relative flex">
               <input
-                className="relative w-full rounded-md placeholder:text-sm text-black dark:bg-dark_background dark:text-white"
+                className={clsx(
+                  "relative w-full rounded-md placeholder:text-sm text-black",
+                  " dark:bg-dark_background dark:text-white"
+                )}
                 name="password"
                 type={isShowPassword ? "text" : "password"}
                 placeholder="Password"
                 required
                 onChange={handleChange}
               />
-              {showPasswordComponents()}
+              {showPasswordComponents(
+                "absolute text-xl mt-2.5 mr-2 right-0 cursor-pointer"
+              )}
             </div>
           </span>
           <input
-            className="bg-primmary_blue rounded-md py-4 font-semibold text-white cursor-pointer hover:bg-blue-700"
+            className={clsx(
+              "bg-primmary_blue rounded-md py-4 font-semibold text-white cursor-pointer ",
+              "hover:bg-blue-700"
+            )}
             type="submit"
             value="Log In"
           />

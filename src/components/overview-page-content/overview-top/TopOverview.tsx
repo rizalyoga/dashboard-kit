@@ -1,6 +1,13 @@
+import clsx from "clsx";
+
 const TopOverview = () => {
   return (
-    <div className="grid grid-flow-row gap-6 text-neutral-600 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+    <div
+      className={clsx(
+        "grid grid-flow-row gap-6 text-neutral-600 grid-cols-2",
+        "md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4"
+      )}
+    >
       <div className="card-top-overview group">
         <p className="font-bold text-slate-400 group-hover:text-primmary_blue ">
           Unresolved

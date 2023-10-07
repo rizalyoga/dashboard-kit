@@ -8,6 +8,7 @@ import { TicketsDataInterface } from "../../types/type";
 import { ticketsData } from "../../data/ticketsData";
 import ModalFormContainer from "../modal/ModalFormContainer";
 import ListTableComponent from "./ListTableComponent";
+import clsx from "clsx";
 
 const TableTickets = () => {
   // const [searchParams, setSearchParams] = useSearchParams();
@@ -54,14 +55,18 @@ const TableTickets = () => {
         createTicketFunction={createNewTicket}
       />
       <div className="bg-white border border-slate-300 rounded-md overflow-x-auto mb-6 dark:bg-dark_background">
-        <div className="p-6 flex flex-col sm:flex-row justify-between">
+        <div className="p-6 flex flex-col justify-between sm:flex-row">
           <h3 className="font-bold text-lg dark:text-slate-300">All Tickets</h3>
-          <div className="flex items-center item gap-1 font-bold text-sm text-slate-400 mt-4 sm:mt-0 -mb-6 sm:mb-0">
+          <div className="flex items-center item gap-1 font-bold text-sm text-slate-400 mt-4 -mb-6 sm:mt-0 sm:mb-0">
             <form className="flex items-center justify-center gap-2">
               <FaSortAmountUp className="text-base" />
               <select
                 onChange={(e) => sortTicketBasedOnName(e.target.value)}
-                className="border border-white p-0 appearance-none focus:ring-0 focus:border-0 pl-1 dark:bg-dark_background dark:border-dark_background"
+                className={clsx(
+                  "border border-white p-0 appearance-none pl-1",
+                  "dark:bg-dark_background dark:border-dark_background",
+                  "focus:ring-0 focus:border-0"
+                )}
               >
                 <option value="sort">Sort</option>
                 <option value={"name"}>Name</option>
@@ -72,7 +77,11 @@ const TableTickets = () => {
               <FaFilter />
               <select
                 onChange={(e) => filterPriority(e.target.value)}
-                className="border border-white p-0 appearance-none focus:ring-0 focus:border-0 pl-1 dark:bg-dark_background dark:border-dark_background"
+                className={clsx(
+                  "border border-white p-0 appearance-none pl-1",
+                  "focus:ring-0 focus:border-0",
+                  "dark:bg-dark_background dark:border-dark_background"
+                )}
               >
                 <option value="filter" defaultValue={"filter"}>
                   Filter
@@ -90,7 +99,12 @@ const TableTickets = () => {
           </div>
         </div>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400  ">
-          <thead className="text-gray-400 uppercase dark:bg-gray-700 dark:text-gray-400">
+          <thead
+            className={clsx(
+              "text-gray-400 uppercase",
+              "dark:bg-gray-700 dark:text-gray-400"
+            )}
+          >
             <tr className="border-b border-b-slate-400">
               <th scope="col" className="px-6 py-3">
                 Ticket Details

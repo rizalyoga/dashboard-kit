@@ -1,6 +1,6 @@
 const DescriptionCol = () => {
   return (
-    <div className=" lg:basis-[25%] text-center  dark:bg-dark_background dark:text-white">
+    <div className="lg:basis-[25%] text-center  dark:bg-dark_background dark:text-white">
       <div className="flex flex-col justify-center items-center p-4">
         <h4 className="font-bold text-slate-400">Resolved</h4>
         <h3 className="font-bold text-xl text-slate-700 dark:text-slate-200">

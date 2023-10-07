@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import ToggleDarkMode from "./ToggleDarkMode";
+import clsx from "clsx";
 
 const UserMenu = ({
   showMenu,
@@ -32,7 +33,13 @@ const UserMenu = ({
       className={showMenu ? "fixed top-0 left-0 w-full h-full z-10" : "hidden"}
       onClick={showMenuUser}
     >
-      <div className="absolute w-48 right-10 top-28 md:top-16 divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 bg-white">
+      <div
+        className={clsx(
+          "absolute bg-white w-48 right-10 top-28 divide-y divide-gray-100 rounded-lg shadow",
+          "md:top-16",
+          "dark:bg-gray-700 dark:divide-gray-600"
+        )}
+      >
         <div className=" px-4 py-3">
           <span className="block text-sm text-gray-900 dark:text-white">
             Jones Ferdinand
@@ -44,25 +51,24 @@ const UserMenu = ({
         <ul className="py-2">
           <ToggleDarkMode />
           <li>
-            <p className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-default">
+            <p
+              className={clsx(
+                "block px-4 py-2 text-sm text-gray-700 cursor-default",
+                "hover:bg-gray-100",
+                " dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+              )}
+            >
               Dashboard
             </p>
           </li>
           <li>
-            <p className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-default">
-              Settings
-            </p>
+            <p className="text-list-menu-style">Settings</p>
           </li>
           <li>
-            <p className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-default">
-              Earnings
-            </p>
+            <p className="text-list-menu-style">Earnings</p>
           </li>
           <li>
-            <p
-              onClick={logOut}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-default"
-            >
+            <p onClick={logOut} className="text-list-menu-style">
               Sign out
             </p>
           </li>

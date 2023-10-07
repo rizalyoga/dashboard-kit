@@ -3,6 +3,7 @@ import { TaskInterface, TicketsDataInterface } from "../../types/type";
 import FormCreateNewTask from "../forms/FormCreateNewTask";
 import FormCreateNewTicket from "../forms/FormCreateNewTicket";
 import { useLocation } from "react-router-dom";
+import clsx from "clsx";
 
 interface ModalFormProps {
   openModal: boolean;
@@ -39,10 +40,19 @@ const ModalForm = ({
     return (
       <div className="fixed top-0 left-0 right-0 z-[100] w-full p-4 overflow-hidden bg-slate-400 bg-opacity-25 h-full flex justify-center items-center">
         <div className="relative w-full max-w-md max-h-full">
-          <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <div
+            className={clsx(
+              "relative bg-white rounded-lg shadow",
+              "dark:bg-gray-700"
+            )}
+          >
             <button
               type="button"
-              className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              className={clsx(
+                "absolute top-3 right-2.5 text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center",
+                "hover:bg-gray-200 hover:text-gray-900",
+                "dark:hover:bg-gray-600 dark:hover:text-white"
+              )}
               data-modal-hide="authentication-modal"
               onClick={handleModal}
             >
