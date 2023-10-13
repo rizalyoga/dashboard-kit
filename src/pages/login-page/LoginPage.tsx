@@ -3,16 +3,18 @@ import Logo from "../../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { authenticationOption } from "../../helper/authentication";
-import { alertError } from "../../helper/alertError";
+// import { alertError } from "../../helper/alertError";
 import clsx from "clsx";
+import Loading from "../../components/loading/Loading";
 
 const LoginPage = () => {
   const auth = sessionStorage.getItem("AuthRole");
   const navigate = useNavigate();
 
   const [isShowPassword, setIsShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [login, setLogin] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -37,13 +39,15 @@ const LoginPage = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (login.password.length < 8) {
-      alertError("Sorry password must contain at least 8 character");
-    } else if (!login.email.includes("@")) {
-      alertError("Please check your email format");
-    } else {
-      authenticationOption(login);
-    }
+    setIsLoading((loading) => !loading);
+    // if (login.password.length < 8) {
+    //   alertError("Sorry password must contain at least 8 character");
+    // } else if (!login.email.includes("@")) {
+    //   alertError("Please check your email format");
+    // } else {
+    //   authenticationOption(login);
+    // }
+    authenticationOption(login);
   };
 
   const showPasswordComponents = (style: string) => {
@@ -83,22 +87,22 @@ const LoginPage = () => {
           Log In to Dashboard Kit
         </h3>
         <p className="text-sm text-slate-400 mb-8">
-          enter your email and password below
+          enter your username and password below
         </p>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 text-slate-400 w-full"
         >
           <span className="flex flex-col">
-            <label className="text-base">EMAIL</label>
+            <label className="text-base">USERNAME</label>
             <input
               className={clsx(
                 "rounded-md placeholder:text-sm text-black",
                 " dark:bg-dark_background dark:text-white"
               )}
-              name="email"
-              type="email"
-              placeholder="Email address"
+              name="username"
+              type="text"
+              placeholder="username"
               required
               onChange={handleChange}
             />
@@ -127,17 +131,21 @@ const LoginPage = () => {
               )}
             </div>
           </span>
-          <input
-            className={clsx(
-              "bg-primmary_blue rounded-md py-4 font-semibold text-white cursor-pointer ",
-              "hover:bg-blue-700"
-            )}
-            type="submit"
-            value="Log In"
-          />
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <input
+              className={clsx(
+                "bg-primmary_blue rounded-md py-4 font-semibold text-white cursor-pointer",
+                "hover:bg-blue-700"
+              )}
+              type="submit"
+              value="Log In"
+            />
+          )}
         </form>
         <p className="text-base text-slate-400 mt-8">
-          Don't have an account ?{" "}
+          Don't have an account ?
           <span className="text-primmary_blue hover:underline">Sign Up</span>
         </p>
       </div>

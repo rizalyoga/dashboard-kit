@@ -5,7 +5,8 @@ export interface TaskInterface {
 }
 
 export interface AuthInterface {
-  email: string;
+  // email: string;
+  username: string;
   password: string;
 }
 
