@@ -20,7 +20,7 @@ Here is a working live demo : https://anime-war-rizalyoga.vercel.app/ -->
 
 ## 🔮 Features
 
-- Login account admin & user (admin account : admin@admin.com, pass:12345678 | user account: user@user.com, pass: 12345678)
+- Login account admin & user (admin account : atuny0, pass: 9uQFF1Lh | user account: dpierrof, pass: Vru55Y4tufI4)
 - Sort data by name
 - Sort data by date
 - Filter data by priority

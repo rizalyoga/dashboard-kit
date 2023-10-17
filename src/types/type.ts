@@ -25,3 +25,14 @@ export interface TicketsDataInterface {
   time: string;
   priority: string;
 }
+
+export interface UserInfoInterface {
+  email: string;
+  firstName: string;
+  gender: string;
+  id: number;
+  image: string;
+  lastName: string;
+  username: string;
+  token: string;
+}

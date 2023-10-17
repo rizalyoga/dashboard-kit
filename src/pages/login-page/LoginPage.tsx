@@ -3,7 +3,7 @@ import Logo from "../../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { authenticationOption } from "../../helper/authentication";
-// import { alertError } from "../../helper/alertError";
+import { alertError } from "../../helper/alertError";
 import clsx from "clsx";
 import Loading from "../../components/loading/Loading";
 
@@ -32,7 +32,7 @@ const LoginPage = () => {
       navigate("/login");
     } else if (auth == "admin") {
       navigate("/overview");
-    } else if (auth == "user") {
+    } else {
       navigate("/tickets");
     }
   }, [auth, navigate]);
@@ -40,14 +40,25 @@ const LoginPage = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading((loading) => !loading);
-    // if (login.password.length < 8) {
-    //   alertError("Sorry password must contain at least 8 character");
-    // } else if (!login.email.includes("@")) {
-    //   alertError("Please check your email format");
-    // } else {
-    //   authenticationOption(login);
-    // }
-    authenticationOption(login);
+    if (login.password.length < 8) {
+      alertError("Sorry password must contain at least 8 character");
+      setIsLoading((loading) => !loading);
+    } else {
+      authenticationOption(login).then((res) => {
+        if (typeof res == "string") {
+          alertError(res);
+          setIsLoading((loading) => !loading);
+        } else {
+          sessionStorage.setItem("UserInfo", JSON.stringify(res));
+          sessionStorage.setItem(
+            "AuthRole",
+            res.gender == "male" ? "admin" : "developer"
+          );
+
+          setIsLoading((loading) => !loading);
+        }
+      });
+    }
   };
 
   const showPasswordComponents = (style: string) => {

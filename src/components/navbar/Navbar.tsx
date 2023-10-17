@@ -1,11 +1,17 @@
 import { BsFillBellFill, BsSearch } from "react-icons/bs";
 import personAvatar from "../../assets/person.jpg";
 import UserMenu from "./UserMenu";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { UserInfoInterface } from "../../types/type";
 
 const Navbar = ({ pageName }: { pageName: string }) => {
   const [isShowMenu, setIsShowMenu] = useState(false);
   const [openSearchForm, setSearchForm] = useState(false);
+  const [userData, setUserData] = useState<UserInfoInterface>();
+
+  useEffect(() => {
+    setUserData(JSON.parse(sessionStorage.getItem("UserInfo") as string));
+  }, []);
 
   const showMenuUser = () => {
     setIsShowMenu((show) => !show);
@@ -39,7 +45,7 @@ const Navbar = ({ pageName }: { pageName: string }) => {
         <BsFillBellFill className="cursor-pointer hover:text-slate-700 dark:hover:text-slate-100" />
         <span className="text-xl text-slate-300">|</span>
         <p className="text-black hidden md:block dark:text-slate-300">
-          Jones Ferdinand
+          {`${userData?.firstName} ${userData?.lastName}`}
         </p>
         <img
           className="w-10 h-10 rounded-full cursor-pointer -mt-1"
