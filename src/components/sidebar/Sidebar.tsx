@@ -13,9 +13,9 @@ const Sidebar = ({ role }: { role: string }) => {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
 
   const [listMenus] = useState<ListMenuInterface[]>(
-    role == "user"
+    role == "developer"
       ? listMenu.filter((menu) => {
-          return menu.role === "user";
+          return menu.role === "developer";
         })
       : listMenu
   );
