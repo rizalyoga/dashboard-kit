@@ -8,7 +8,6 @@ import clsx from "clsx";
 import Loading from "../../components/loading/Loading";
 
 const LoginPage = () => {
-  const auth = sessionStorage.getItem("AuthRole");
   const navigate = useNavigate();
 
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -28,14 +27,13 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-    if (!auth) {
-      navigate("/login");
-    } else if (auth == "admin") {
+    const auth = sessionStorage.getItem("AuthRole");
+    if (auth == "admin") {
       navigate("/overview");
-    } else {
+    } else if (auth == "developer") {
       navigate("/tickets");
     }
-  }, [auth, navigate]);
+  }, [navigate]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -54,8 +52,10 @@ const LoginPage = () => {
             "AuthRole",
             res.gender == "male" ? "admin" : "developer"
           );
-
           setIsLoading((loading) => !loading);
+
+          window.location.href =
+            res.gender == "male" ? "/overview" : "/tickets";
         }
       });
     }

@@ -9,7 +9,7 @@ const PrivatePage = ({
 }) => {
   if (isSignedIn == "admin") {
     return children;
-  } else if (isSignedIn == "user") {
+  } else if (isSignedIn == "developer") {
     return children;
   }
 
