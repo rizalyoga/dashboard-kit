@@ -1,5 +1,4 @@
 import { BsFillBellFill, BsSearch } from "react-icons/bs";
-import personAvatar from "../../assets/person.jpg";
 import UserMenu from "./UserMenu";
 import { useState, useEffect } from "react";
 import { UserInfoInterface } from "../../types/type";
@@ -49,7 +48,7 @@ const Navbar = ({ pageName }: { pageName: string }) => {
         </p>
         <img
           className="w-10 h-10 rounded-full cursor-pointer -mt-1"
-          src={personAvatar}
+          src={userData?.image}
           alt="Rounded avatar"
           onClick={showMenuUser}
         />

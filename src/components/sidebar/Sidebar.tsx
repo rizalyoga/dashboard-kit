@@ -64,7 +64,7 @@ const Sidebar = ({ role }: { role: string }) => {
         id="separator-sidebar"
         className={clsx(
           isOpenSidebar ? openSidebarStyle : closeSidebarStyle,
-          "fixed top-0 left-0 z-40 w-64 h-screen transition-transform md:translate-x-0"
+          "fixed top-0 left-0 z-40 w-64 h-screen transition-transform md:translate-x-0 -translate-x-full"
         )}
         aria-label="Sidebar"
       >

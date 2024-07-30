@@ -93,6 +93,7 @@ const TableTickets = () => {
               </select>
             </form>
             <BsPlusSquare
+              title="Create-ticket"
               onClick={handleModal}
               className="text-slate-400 bg-slate-200 text-lg cursor-pointer hover:text-slate-700"
             />

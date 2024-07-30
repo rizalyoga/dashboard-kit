@@ -4,6 +4,8 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import clsx from "clsx";
 
 const ListTableComponent = ({ ticket }: { ticket: TicketsDataInterface }) => {
+  const role = sessionStorage.getItem("AuthRole");
+
   const setBackgroundPriority = (priority: string) => {
     switch (priority) {
       case "high":
@@ -55,9 +57,10 @@ const ListTableComponent = ({ ticket }: { ticket: TicketsDataInterface }) => {
           {ticket.priority.toUpperCase()}
         </span>
       </td>
-      <td>
+      {role != "developer" && (
         <BsThreeDotsVertical className="font-bold text-xl cursor-pointer text-slate-400 hover:text-slate-500" />
-      </td>
+      )}
+      <td></td>
     </tr>
   );
 };
